@@ -6,7 +6,68 @@
 
 // Put the assignment code here
 
-class Quaternion {
+class Quaternion{
+  double coefone;
+  double coeftwo;
+  double coefthree;
+  double coeffour;
+public:
+  Quaternion(double a, double b, double c, double d){
+    coefone = a;
+    coeftwo = b;
+    coefthree = c;
+    coeffour = d;
+  }
+
+Quaternion operator+(const Quaternion& z)const{
+  Quaternion here{0,0,0,0};
+  here.coefone = this->coefone + z.coefone;
+  here.coeftwo = this->coeftwo + z.coeftwo;
+  here.coefthree = this->coefthree + z.coefthree;
+  here.coeffour = this->coeffour + z.coeffour;
+  return here;
+}
+
+Quaternion operator-(const Quaternion& z)const{
+  Quaternion minus{0,0,0,0};
+  minus.coefone = this->coefone - z.coefone;
+  minus.coeftwo = this->coeftwo - z.coeftwo;
+  minus.coefthree = this->coefthree - z.coefthree;
+  minus.coeffour = this->coeffour - z.coeffour;
+  return minus;
+}
+Quaternion operator*(const double& yn)const{
+  Quaternion multi{0,0,0,0};
+  multi.coefone = this->coefone * yn;
+  multi.coeftwo = this->coeftwo * yn;
+  multi.coefthree = this->coefthree * yn;
+  multi.coeffour = this->coeffour * yn;
+  return multi;
+}
+
+bool operator==(const Quaternion& z)const{
+  if (this->coefone == z.coefone){
+    if (this->coeftwo == z.coeftwo){
+      if (this->coefthree == z.coefthree){
+        if (this->coeffour == z.coeffour){
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+      else{
+        return false;
+      }
+    
+    }else{
+      return false;
+      }
+    }
+    else{
+      return false;
+    }
+  }
 };
 
 //------------------------------
